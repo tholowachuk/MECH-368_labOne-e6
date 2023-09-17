@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.buttonDisconnect = new System.Windows.Forms.Button();
+            this.comboBoxCOMPorts = new System.Windows.Forms.ComboBox();
+            this.buttonUpdateSerial = new System.Windows.Forms.Button();
             this.textBoxBytesToRead = new System.Windows.Forms.TextBox();
             this.textBoxStringLength = new System.Windows.Forms.TextBox();
             this.textBoxQueuedItems = new System.Windows.Forms.TextBox();
@@ -42,22 +42,23 @@
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SuspendLayout();
             // 
-            // comboBox1
+            // comboBoxCOMPorts
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 21);
-            this.comboBox1.TabIndex = 1;
+            this.comboBoxCOMPorts.FormattingEnabled = true;
+            this.comboBoxCOMPorts.Location = new System.Drawing.Point(12, 12);
+            this.comboBoxCOMPorts.Name = "comboBoxCOMPorts";
+            this.comboBoxCOMPorts.Size = new System.Drawing.Size(177, 21);
+            this.comboBoxCOMPorts.TabIndex = 1;
+            this.comboBoxCOMPorts.SelectedIndexChanged += new System.EventHandler(this.comboBoxCOMPorts_SelectedIndexChanged);
             // 
-            // buttonDisconnect
+            // buttonUpdateSerial
             // 
-            this.buttonDisconnect.Location = new System.Drawing.Point(195, 12);
-            this.buttonDisconnect.Name = "buttonDisconnect";
-            this.buttonDisconnect.Size = new System.Drawing.Size(114, 23);
-            this.buttonDisconnect.TabIndex = 2;
-            this.buttonDisconnect.Text = "Disconnect Serial";
-            this.buttonDisconnect.UseVisualStyleBackColor = true;
+            this.buttonUpdateSerial.Location = new System.Drawing.Point(195, 12);
+            this.buttonUpdateSerial.Name = "buttonUpdateSerial";
+            this.buttonUpdateSerial.Size = new System.Drawing.Size(114, 23);
+            this.buttonUpdateSerial.TabIndex = 2;
+            this.buttonUpdateSerial.UseVisualStyleBackColor = true;
+            this.buttonUpdateSerial.Click += new System.EventHandler(this.buttonUpdateSerial_Click);
             // 
             // textBoxBytesToRead
             // 
@@ -133,6 +134,11 @@
             this.textBoxDataContents.Size = new System.Drawing.Size(301, 207);
             this.textBoxDataContents.TabIndex = 10;
             // 
+            // serialPort1
+            // 
+            this.serialPort1.PortName = "COM3";
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
             // serialDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,11 +152,12 @@
             this.Controls.Add(this.textBoxQueuedItems);
             this.Controls.Add(this.textBoxStringLength);
             this.Controls.Add(this.textBoxBytesToRead);
-            this.Controls.Add(this.buttonDisconnect);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.buttonUpdateSerial);
+            this.Controls.Add(this.comboBoxCOMPorts);
             this.MinimumSize = new System.Drawing.Size(334, 413);
             this.Name = "serialDemo";
             this.Text = "Serial Demo";
+            this.Load += new System.EventHandler(this.serialDemo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,8 +165,8 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button buttonDisconnect;
+        private System.Windows.Forms.ComboBox comboBoxCOMPorts;
+        private System.Windows.Forms.Button buttonUpdateSerial;
         private System.Windows.Forms.TextBox textBoxBytesToRead;
         private System.Windows.Forms.TextBox textBoxStringLength;
         private System.Windows.Forms.TextBox textBoxQueuedItems;
