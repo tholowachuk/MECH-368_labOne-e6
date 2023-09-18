@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MECH_368_labOne_e4
+namespace MECH_368_labOne_e5
 {
     internal static class Program
     {

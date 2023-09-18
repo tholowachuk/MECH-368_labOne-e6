@@ -10,15 +10,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 
-namespace MECH_368_labOne_e4
+namespace MECH_368_labOne_e5
 {
     public partial class serialDemo : Form
     {
         //create some variables & a queue for later use
-        int bytesToReadDisplay;
+        int currentAXValue = 0;
+        int currentAYValue = 0;
+        int currentAZValue = 0;
+        int currentByteIndex = 0;
+        int bytesToReadDisplay = 0;
         string tempSerialData = "";
         ConcurrentQueue<Int32> dataQueue = new ConcurrentQueue<Int32>();
-
+        ConcurrentQueue<Int32> aXQueue = new ConcurrentQueue<Int32>();
+        ConcurrentQueue<Int32> aYQueue = new ConcurrentQueue<Int32>();
+        ConcurrentQueue<Int32> aZQueue = new ConcurrentQueue<Int32>();
 
         public serialDemo()
         {
@@ -77,10 +83,42 @@ namespace MECH_368_labOne_e4
                 //update display of number of items in queue
                 textBoxQueuedItems.Text = dataQueue.Count.ToString();
             }
-            
+         
             //dequeue items and insert them into an endless textbox
             while (dataQueue.TryDequeue(out int dequeuedByte))
             {
+                //check if next item is 255
+                if (dequeuedByte == 255)
+                {
+                    currentByteIndex = 0;
+                }
+                else
+                {
+                    if (currentByteIndex == 0)
+                    {
+                        currentAXValue = dequeuedByte;
+                    }
+                    else if (currentByteIndex == 1)
+                    {
+                        currentAYValue = dequeuedByte;
+                    }
+                    else if (currentByteIndex == 2)
+                    {
+                        currentAZValue = dequeuedByte;
+                    }
+
+                    currentByteIndex++;
+
+                    aXQueue.Enqueue(currentAXValue);
+                    aYQueue.Enqueue(currentAYValue);
+                    aZQueue.Enqueue(currentAZValue);
+
+                    maskedTextBoxAX.Text = currentAXValue.ToString();
+                    maskedTextBoxAY.Text = currentAYValue.ToString();
+                    maskedTextBoxAZ.Text = currentAZValue.ToString();
+                }
+
+                
                 textBoxDataContents.AppendText(dequeuedByte.ToString() + ", ");
             }
 
@@ -138,6 +176,9 @@ namespace MECH_368_labOne_e4
                     textBoxStringLength.Text = "";
                     textBoxQueuedItems.Text = "";
                     textBoxDataContents.Text = "";
+                    maskedTextBoxAX.Text = "";
+                    maskedTextBoxAY.Text = "";
+                    maskedTextBoxAZ.Text = "";
                 }
             }
             catch (Exception ex)

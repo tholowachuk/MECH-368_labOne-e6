@@ -1,4 +1,4 @@
-﻿namespace MECH_368_labOne_e4
+﻿namespace MECH_368_labOne_e5
 {
     partial class serialDemo
     {
@@ -40,6 +40,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxDataContents = new System.Windows.Forms.TextBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.labelAy = new System.Windows.Forms.Label();
+            this.labelAZ = new System.Windows.Forms.Label();
+            this.labelAX = new System.Windows.Forms.Label();
+            this.maskedTextBoxAX = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxAY = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxAZ = new System.Windows.Forms.MaskedTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // comboBoxCOMPorts
@@ -131,7 +140,7 @@
             this.textBoxDataContents.Location = new System.Drawing.Point(8, 155);
             this.textBoxDataContents.Multiline = true;
             this.textBoxDataContents.Name = "textBoxDataContents";
-            this.textBoxDataContents.Size = new System.Drawing.Size(301, 207);
+            this.textBoxDataContents.Size = new System.Drawing.Size(301, 166);
             this.textBoxDataContents.TabIndex = 10;
             // 
             // serialPort1
@@ -139,11 +148,101 @@
             this.serialPort1.PortName = "COM3";
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
+            // labelAy
+            // 
+            this.labelAy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelAy.AutoSize = true;
+            this.labelAy.Location = new System.Drawing.Point(5, 363);
+            this.labelAy.Name = "labelAy";
+            this.labelAy.Size = new System.Drawing.Size(19, 13);
+            this.labelAy.TabIndex = 11;
+            this.labelAy.Text = "Ay";
+            // 
+            // labelAZ
+            // 
+            this.labelAZ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelAZ.AutoSize = true;
+            this.labelAZ.Location = new System.Drawing.Point(5, 389);
+            this.labelAZ.Name = "labelAZ";
+            this.labelAZ.Size = new System.Drawing.Size(19, 13);
+            this.labelAZ.TabIndex = 13;
+            this.labelAZ.Text = "Az";
+            // 
+            // labelAX
+            // 
+            this.labelAX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelAX.AutoSize = true;
+            this.labelAX.Location = new System.Drawing.Point(5, 337);
+            this.labelAX.Name = "labelAX";
+            this.labelAX.Size = new System.Drawing.Size(19, 13);
+            this.labelAX.TabIndex = 12;
+            this.labelAX.Text = "Ax";
+            // 
+            // maskedTextBoxAX
+            // 
+            this.maskedTextBoxAX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxAX.Location = new System.Drawing.Point(30, 334);
+            this.maskedTextBoxAX.Name = "maskedTextBoxAX";
+            this.maskedTextBoxAX.Size = new System.Drawing.Size(129, 20);
+            this.maskedTextBoxAX.TabIndex = 15;
+            // 
+            // maskedTextBoxAY
+            // 
+            this.maskedTextBoxAY.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxAY.Location = new System.Drawing.Point(30, 360);
+            this.maskedTextBoxAY.Name = "maskedTextBoxAY";
+            this.maskedTextBoxAY.Size = new System.Drawing.Size(129, 20);
+            this.maskedTextBoxAY.TabIndex = 16;
+            // 
+            // maskedTextBoxAZ
+            // 
+            this.maskedTextBoxAZ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxAZ.Location = new System.Drawing.Point(30, 386);
+            this.maskedTextBoxAZ.Name = "maskedTextBoxAZ";
+            this.maskedTextBoxAZ.Size = new System.Drawing.Size(129, 20);
+            this.maskedTextBoxAZ.TabIndex = 14;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(165, 334);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(144, 20);
+            this.textBox1.TabIndex = 17;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(165, 360);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(144, 20);
+            this.textBox2.TabIndex = 18;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(165, 386);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(144, 20);
+            this.textBox3.TabIndex = 19;
+            // 
             // serialDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 374);
+            this.ClientSize = new System.Drawing.Size(318, 421);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.maskedTextBoxAY);
+            this.Controls.Add(this.maskedTextBoxAX);
+            this.Controls.Add(this.maskedTextBoxAZ);
+            this.Controls.Add(this.labelAZ);
+            this.Controls.Add(this.labelAX);
+            this.Controls.Add(this.labelAy);
             this.Controls.Add(this.textBoxDataContents);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -154,7 +253,7 @@
             this.Controls.Add(this.textBoxBytesToRead);
             this.Controls.Add(this.buttonUpdateSerial);
             this.Controls.Add(this.comboBoxCOMPorts);
-            this.MinimumSize = new System.Drawing.Size(334, 413);
+            this.MinimumSize = new System.Drawing.Size(334, 460);
             this.Name = "serialDemo";
             this.Text = "Serial Demo";
             this.Load += new System.EventHandler(this.serialDemo_Load);
@@ -176,6 +275,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxDataContents;
         private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Label labelAy;
+        private System.Windows.Forms.Label labelAZ;
+        private System.Windows.Forms.Label labelAX;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxAX;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxAY;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxAZ;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 
