@@ -46,9 +46,9 @@
             this.maskedTextBoxAX = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxAY = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxAZ = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxOrientationX = new System.Windows.Forms.TextBox();
+            this.textBoxOrientationY = new System.Windows.Forms.TextBox();
+            this.textBoxOrientationZ = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // comboBoxCOMPorts
@@ -208,35 +208,35 @@
             this.maskedTextBoxAZ.Size = new System.Drawing.Size(129, 20);
             this.maskedTextBoxAZ.TabIndex = 14;
             // 
-            // textBox1
+            // textBoxOrientationX
             // 
-            this.textBox1.Location = new System.Drawing.Point(165, 334);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 20);
-            this.textBox1.TabIndex = 17;
+            this.textBoxOrientationX.Location = new System.Drawing.Point(165, 334);
+            this.textBoxOrientationX.Name = "textBoxOrientationX";
+            this.textBoxOrientationX.Size = new System.Drawing.Size(144, 20);
+            this.textBoxOrientationX.TabIndex = 17;
             // 
-            // textBox2
+            // textBoxOrientationY
             // 
-            this.textBox2.Location = new System.Drawing.Point(165, 360);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 20);
-            this.textBox2.TabIndex = 18;
+            this.textBoxOrientationY.Location = new System.Drawing.Point(165, 360);
+            this.textBoxOrientationY.Name = "textBoxOrientationY";
+            this.textBoxOrientationY.Size = new System.Drawing.Size(144, 20);
+            this.textBoxOrientationY.TabIndex = 18;
             // 
-            // textBox3
+            // textBoxOrientationZ
             // 
-            this.textBox3.Location = new System.Drawing.Point(165, 386);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(144, 20);
-            this.textBox3.TabIndex = 19;
+            this.textBoxOrientationZ.Location = new System.Drawing.Point(165, 386);
+            this.textBoxOrientationZ.Name = "textBoxOrientationZ";
+            this.textBoxOrientationZ.Size = new System.Drawing.Size(144, 20);
+            this.textBoxOrientationZ.TabIndex = 19;
             // 
             // serialDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(318, 421);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxOrientationZ);
+            this.Controls.Add(this.textBoxOrientationY);
+            this.Controls.Add(this.textBoxOrientationX);
             this.Controls.Add(this.maskedTextBoxAY);
             this.Controls.Add(this.maskedTextBoxAX);
             this.Controls.Add(this.maskedTextBoxAZ);
@@ -281,9 +281,9 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxAX;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxAY;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxAZ;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxOrientationX;
+        private System.Windows.Forms.TextBox textBoxOrientationY;
+        private System.Windows.Forms.TextBox textBoxOrientationZ;
     }
 }
 

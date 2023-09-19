@@ -58,6 +58,44 @@ namespace MECH_368_labOne_e5
             //}
         }
 
+        private string DetermineOrientation(int ax, int ay, int az)
+        {
+            // Define orientation thresholds based on criteria for each axis
+            int xThreshold = 128;
+            int yThreshold = 128;
+            int zThreshold= 128;
+
+            // Determine orientation label based on thresholds for each axis
+            if (ax > xThreshold && ay == 0 && az == 0)
+            {
+                return "Facing left (X-)";
+            }
+            else if (ax <= xThreshold && ay == 0 && az == 0)
+            {
+                return "Facing right (X+)";
+            }
+            else if (ay > yThreshold && ax == 0 && az == 0)
+            {
+                return "Facing front (Y+)";
+            }
+            else if (ay <= yThreshold && ax == 0 && az == 0)
+            {
+                return "Facing back (Y-)";
+            }
+            else if (az > zThreshold && ax == 0 && ay == 0)
+            {
+                return "Facing up (Z+)";
+            }
+            else if (az <= zThreshold && ax == 0 && ay == 0)
+            {
+                return "Facing down (Z-)";
+            }
+            else
+            {
+                return "Unknown orientation";
+            }
+        }
+
         private void queueTimer_Tick (object sender, EventArgs e)
         {
             if (!serialPort1.IsOpen)
@@ -82,6 +120,16 @@ namespace MECH_368_labOne_e5
 
                 //update display of number of items in queue
                 textBoxQueuedItems.Text = dataQueue.Count.ToString();
+
+                //determine orientation based on Ax, Ay, and Az values
+
+
+
+
+                //display orientation labels in their respective textboxes
+
+
+
             }
          
             //dequeue items and insert them into an endless textbox
@@ -97,14 +145,20 @@ namespace MECH_368_labOne_e5
                     if (currentByteIndex == 0)
                     {
                         currentAXValue = dequeuedByte;
+                        string orientationX = DetermineOrientation(dequeuedByte, 0, 0);
+                        textBoxOrientationX.Text = orientationX;
                     }
                     else if (currentByteIndex == 1)
                     {
                         currentAYValue = dequeuedByte;
+                        string orientationY = DetermineOrientation(0, dequeuedByte, 0);
+                        textBoxOrientationY.Text = orientationY;
                     }
                     else if (currentByteIndex == 2)
                     {
                         currentAZValue = dequeuedByte;
+                        string orientationZ = DetermineOrientation(0, 0, dequeuedByte);
+                        textBoxOrientationZ.Text = orientationZ;
                     }
 
                     currentByteIndex++;
