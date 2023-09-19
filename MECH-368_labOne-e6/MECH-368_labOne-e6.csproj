@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4196CFCA-1516-45DD-B9C1-B35BF2F44441}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MECH_368_labOne_e4</RootNamespace>
-    <AssemblyName>MECH-368_labOne-e4</AssemblyName>
+    <RootNamespace>MECH_368_labOne_e6</RootNamespace>
+    <AssemblyName>MECH-368_labOne-e6</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

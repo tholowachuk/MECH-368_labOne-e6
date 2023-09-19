@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 
-namespace MECH_368_labOne_e5
+namespace MECH_368_labOne_e6
 {
     public partial class serialDemo : Form
     {

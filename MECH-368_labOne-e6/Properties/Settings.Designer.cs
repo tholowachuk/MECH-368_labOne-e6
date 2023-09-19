@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MECH_368_labOne_e5.Properties
+namespace MECH_368_labOne_e6.Properties
 {
 
 
