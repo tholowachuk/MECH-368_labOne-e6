@@ -9,22 +9,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
+using System.IO;
 
 namespace MECH_368_labOne_e6
 {
     public partial class serialDemo : Form
     {
-        //create some variables & a queue for later use
+        //create some variables, queues, and a StreamWriter for later use
         int currentAXValue = 0;
         int currentAYValue = 0;
         int currentAZValue = 0;
         int currentByteIndex = 0;
         int bytesToReadDisplay = 0;
-        string tempSerialData = "";
         ConcurrentQueue<Int32> dataQueue = new ConcurrentQueue<Int32>();
         ConcurrentQueue<Int32> aXQueue = new ConcurrentQueue<Int32>();
         ConcurrentQueue<Int32> aYQueue = new ConcurrentQueue<Int32>();
         ConcurrentQueue<Int32> aZQueue = new ConcurrentQueue<Int32>();
+
+        private StreamWriter csvWriter;
 
         public serialDemo()
         {
@@ -98,6 +100,7 @@ namespace MECH_368_labOne_e6
 
         private void queueTimer_Tick (object sender, EventArgs e)
         {
+            //check if board is ready to be connected
             if (!serialPort1.IsOpen)
             {
                 //update button text with relevant label
@@ -120,16 +123,6 @@ namespace MECH_368_labOne_e6
 
                 //update display of number of items in queue
                 textBoxQueuedItems.Text = dataQueue.Count.ToString();
-
-                //determine orientation based on Ax, Ay, and Az values
-
-
-
-
-                //display orientation labels in their respective textboxes
-
-
-
             }
          
             //dequeue items and insert them into an endless textbox
@@ -186,6 +179,26 @@ namespace MECH_368_labOne_e6
             //textBoxDataContents.AppendText(tempSerialData);
             //textBoxStringLength.Text = tempSerialData.Length.ToString();
             //tempSerialData = "";
+
+            //check if the save checkbox is selected, write data if so
+            if (checkBoxSave.Checked)
+            {
+                if (csvWriter == null)
+                {
+                    try
+                    {
+                        csvWriter = new StreamWriter(textBoxFilename.Text, false);
+                        csvWriter.WriteLine("Ax, Ay, Az, Timestamp");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error writing data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                csvWriter.WriteLine($"{currentAXValue}, {currentAYValue}, {currentAZValue}, {timestamp}, ");
+            }
         }
 
         private void comboBoxCOMPorts_SelectedIndexChanged(object sender, EventArgs e)
@@ -238,6 +251,22 @@ namespace MECH_368_labOne_e6
             catch (Exception ex)
             {
                 MessageBox.Show("Error opening the serial port: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonFilename_Click(object sender, EventArgs e)
+        {
+            //initiate a save box
+            SaveFileDialog csvSave = new SaveFileDialog();
+            csvSave.Filter = "CSV Files (*.csv)|*.csv|All Files (*.*)|*.*";
+
+            if (csvSave.ShowDialog() == DialogResult.OK)
+            {
+                //display selected save path & start data recording
+                string filePath = csvSave.FileName;
+                textBoxFilename.Text = filePath;
+                checkBoxSave.Enabled = true;
+                checkBoxSave.Checked = true;
             }
         }
     }

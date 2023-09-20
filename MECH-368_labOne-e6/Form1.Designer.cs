@@ -49,6 +49,9 @@
             this.textBoxOrientationX = new System.Windows.Forms.TextBox();
             this.textBoxOrientationY = new System.Windows.Forms.TextBox();
             this.textBoxOrientationZ = new System.Windows.Forms.TextBox();
+            this.checkBoxSave = new System.Windows.Forms.CheckBox();
+            this.buttonFilename = new System.Windows.Forms.Button();
+            this.textBoxFilename = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // comboBoxCOMPorts
@@ -150,10 +153,9 @@
             // 
             // labelAy
             // 
-            this.labelAy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelAy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelAy.AutoSize = true;
-            this.labelAy.Location = new System.Drawing.Point(5, 363);
+            this.labelAy.Location = new System.Drawing.Point(5, 367);
             this.labelAy.Name = "labelAy";
             this.labelAy.Size = new System.Drawing.Size(19, 13);
             this.labelAy.TabIndex = 11;
@@ -161,10 +163,9 @@
             // 
             // labelAZ
             // 
-            this.labelAZ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelAZ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelAZ.AutoSize = true;
-            this.labelAZ.Location = new System.Drawing.Point(5, 389);
+            this.labelAZ.Location = new System.Drawing.Point(5, 393);
             this.labelAZ.Name = "labelAZ";
             this.labelAZ.Size = new System.Drawing.Size(19, 13);
             this.labelAZ.TabIndex = 13;
@@ -172,10 +173,9 @@
             // 
             // labelAX
             // 
-            this.labelAX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelAX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelAX.AutoSize = true;
-            this.labelAX.Location = new System.Drawing.Point(5, 337);
+            this.labelAX.Location = new System.Drawing.Point(5, 341);
             this.labelAX.Name = "labelAX";
             this.labelAX.Size = new System.Drawing.Size(19, 13);
             this.labelAX.TabIndex = 12;
@@ -183,8 +183,7 @@
             // 
             // maskedTextBoxAX
             // 
-            this.maskedTextBoxAX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxAX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.maskedTextBoxAX.Location = new System.Drawing.Point(30, 334);
             this.maskedTextBoxAX.Name = "maskedTextBoxAX";
             this.maskedTextBoxAX.Size = new System.Drawing.Size(129, 20);
@@ -192,8 +191,7 @@
             // 
             // maskedTextBoxAY
             // 
-            this.maskedTextBoxAY.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxAY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.maskedTextBoxAY.Location = new System.Drawing.Point(30, 360);
             this.maskedTextBoxAY.Name = "maskedTextBoxAY";
             this.maskedTextBoxAY.Size = new System.Drawing.Size(129, 20);
@@ -201,8 +199,7 @@
             // 
             // maskedTextBoxAZ
             // 
-            this.maskedTextBoxAZ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxAZ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.maskedTextBoxAZ.Location = new System.Drawing.Point(30, 386);
             this.maskedTextBoxAZ.Name = "maskedTextBoxAZ";
             this.maskedTextBoxAZ.Size = new System.Drawing.Size(129, 20);
@@ -210,6 +207,8 @@
             // 
             // textBoxOrientationX
             // 
+            this.textBoxOrientationX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxOrientationX.Location = new System.Drawing.Point(165, 334);
             this.textBoxOrientationX.Name = "textBoxOrientationX";
             this.textBoxOrientationX.Size = new System.Drawing.Size(144, 20);
@@ -217,6 +216,8 @@
             // 
             // textBoxOrientationY
             // 
+            this.textBoxOrientationY.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxOrientationY.Location = new System.Drawing.Point(165, 360);
             this.textBoxOrientationY.Name = "textBoxOrientationY";
             this.textBoxOrientationY.Size = new System.Drawing.Size(144, 20);
@@ -224,16 +225,53 @@
             // 
             // textBoxOrientationZ
             // 
+            this.textBoxOrientationZ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxOrientationZ.Location = new System.Drawing.Point(165, 386);
             this.textBoxOrientationZ.Name = "textBoxOrientationZ";
             this.textBoxOrientationZ.Size = new System.Drawing.Size(144, 20);
             this.textBoxOrientationZ.TabIndex = 19;
             // 
+            // checkBoxSave
+            // 
+            this.checkBoxSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkBoxSave.AutoSize = true;
+            this.checkBoxSave.Enabled = false;
+            this.checkBoxSave.Location = new System.Drawing.Point(8, 421);
+            this.checkBoxSave.Name = "checkBoxSave";
+            this.checkBoxSave.Size = new System.Drawing.Size(82, 17);
+            this.checkBoxSave.TabIndex = 21;
+            this.checkBoxSave.Text = "Save to File";
+            this.checkBoxSave.UseVisualStyleBackColor = true;
+            // 
+            // buttonFilename
+            // 
+            this.buttonFilename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonFilename.Location = new System.Drawing.Point(8, 444);
+            this.buttonFilename.Name = "buttonFilename";
+            this.buttonFilename.Size = new System.Drawing.Size(99, 23);
+            this.buttonFilename.TabIndex = 22;
+            this.buttonFilename.Text = "Select Filename";
+            this.buttonFilename.UseVisualStyleBackColor = true;
+            this.buttonFilename.Click += new System.EventHandler(this.buttonFilename_Click);
+            // 
+            // textBoxFilename
+            // 
+            this.textBoxFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxFilename.Location = new System.Drawing.Point(113, 446);
+            this.textBoxFilename.Name = "textBoxFilename";
+            this.textBoxFilename.Size = new System.Drawing.Size(196, 20);
+            this.textBoxFilename.TabIndex = 23;
+            // 
             // serialDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 421);
+            this.ClientSize = new System.Drawing.Size(318, 482);
+            this.Controls.Add(this.textBoxFilename);
+            this.Controls.Add(this.buttonFilename);
+            this.Controls.Add(this.checkBoxSave);
             this.Controls.Add(this.textBoxOrientationZ);
             this.Controls.Add(this.textBoxOrientationY);
             this.Controls.Add(this.textBoxOrientationX);
@@ -284,6 +322,9 @@
         private System.Windows.Forms.TextBox textBoxOrientationX;
         private System.Windows.Forms.TextBox textBoxOrientationY;
         private System.Windows.Forms.TextBox textBoxOrientationZ;
+        private System.Windows.Forms.CheckBox checkBoxSave;
+        private System.Windows.Forms.Button buttonFilename;
+        private System.Windows.Forms.TextBox textBoxFilename;
     }
 }
 
